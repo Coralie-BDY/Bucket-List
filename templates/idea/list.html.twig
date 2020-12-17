@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>Latest ideas</h1>
+    <div class="idea-list">
+
+        {% for idea in ideas %}
+            <a href="{{ path('idea_detail', {'id': idea.id }) }}" title="More details on {{ idea.title }}">
+                <h5>{{ idea.category.name }}</h5>
+                {{ idea.title }}
+            </a>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block title %}Latest ideas | {{ parent() }}{% endblock %}
